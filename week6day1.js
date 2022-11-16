@@ -1,15 +1,21 @@
 // Write a recursive function called reverseString which accepts a string and returns a new string in reverse.
-// reverseString('tony') // 'ynot'
-// reverseString('baker') // 'rekab'
+
+//? SHORTER VERSION WITH LESS SPACE
+// function reverseString(str) {
+//     if (!str || !str.length) return str;
+//     return reverseString(str.slice(1)) + str[0];
+// }
+
+// console.log(reverseString("tony"));
 
 function reverseString(str) {
     let newString = "";
     if (!str || !str.length) {
-        return "";
+        return ""; //BASE CASE
     } else {
         newString += str[str.length - 1];
         newString = newString.concat(
-            reverseString(str.slice(0, str.length - 1))
+            reverseString(str.slice(0, str.length - 1)) //
         );
     }
     return newString;
@@ -20,11 +26,6 @@ console.log(reverseString("baker"));
 
 // Write a recursive function called palindrome which returns true
 // if the string passed to it is a palindrome (reads the same forward and backward).
-// Otherwise it returns false.
-// palindrome('tony') // false
-// palindrome('monkey') // false
-// palindrome('tacocat') // true
-// palindrome('sos') // true
 
 const palindrome = (str) => {
     // let end = str.length - 1;
@@ -48,10 +49,6 @@ console.log(palindrome("sos"));
 
 // Write a recursive function called flatTheArray which accepts an array of arrays
 // and returns a new array with all values flattened.
-// flatTheArray([1, 2, 3, [4, 5] ]) // [1, 2, 3, 4, 5]
-// flatTheArray([1, [2, [3, 4], [[5]]]]) // [1, 2, 3, 4, 5]
-// flatTheArray([[1],[2],[3]]) // [1,2,3]
-// flatTheArray([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3]
 const flatTheArray = (arr) => {
     let newArr = [];
     // console.log(arr.length);
@@ -75,6 +72,19 @@ console.log(flatTheArray([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])); //[1,2,3]
 // Write a recursive function called capitalizeTheFirst.
 // Given an array of strings, capitalize the first letter of each string in the array.
 // capitalizeFirstLetter(['tony', 'truck']); // ['Tony', 'Truck']
+
+//? shorter version with less space
+// const capitalizeFirstLetter = (array) => {
+//     if (!array || !array.length) {
+//         return array;
+//     } else {
+//         result = array[0].split("");
+//         result[0] = result[0].toUpperCase();
+//         result = result.join("");
+//         return [result].concat(capitalizeFirstLetter(array.slice(1)));
+//     }
+// }
+
 const capitalizeFirstLetter = (array) => {
     let newArray = [];
     if (!array || !array.length) {
@@ -88,6 +98,16 @@ const capitalizeFirstLetter = (array) => {
         return newArray;
     }
 };
+
+//? SHORTER VERSION WITH LESS SPACE
+// const capitalizeAllLetters = (array) => {
+//     if (!array || !array.length) {
+//         return array;
+//     } else {
+//         result = array[0].toUpperCase();
+//         return [result].concat(capitalizeAllLetters(array.slice(1)));
+//     }
+// };
 
 console.log(`\nRECURSION 4`);
 console.log(capitalizeFirstLetter(["tony", "truck"]));
